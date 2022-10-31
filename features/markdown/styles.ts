@@ -1,26 +1,25 @@
 import { CSSRules } from "twind/css";
 
 const markdownStyle: CSSRules = {
-  h1: {
-    fontSize: "2em",
+  "h1, h2, h3": {
     fontWeight: "bold",
-
-    marginTop: "1.6em",
-    marginBottom: "0.8em",
-
+    wordBreak: "break-word",
+  },
+  h1: {
+    fontSize: "1.6em",
+    marginTop: "1.2em",
+    marginBottom: "0.6em",
     borderBottomWidth: "1px",
     borderBottomStyle: "solid",
     borderBottomColor: "#5c93bb2b",
   },
   h2: {
-    fontSize: "1.6em",
-    fontWeight: "bolder",
-    marginTop: "1.2em",
-    marginBottom: "0.6em",
+    fontSize: "1.4em",
+    marginTop: "1em",
+    marginBottom: "0.5em",
   },
   h3: {
     fontSize: "1.2em",
-    fontWeight: "bolder",
     marginTop: "0.8em",
     marginBottom: "0.4em",
   },
@@ -40,6 +39,10 @@ const markdownStyle: CSSRules = {
   a: {
     color: "#0856fd",
     wordWrap: "break-word",
+  },
+  ".contains-task-list": {
+    paddingLeft: "0.5em",
+    listStyle: "none",
   },
   ul: {
     paddingLeft: "1.8em",
@@ -75,6 +78,7 @@ const markdownStyle: CSSRules = {
   },
 
   code: {
+    wordBreak: "break-word",
     padding: "0.1em 0.4em",
     margin: "0 0.2em",
     background: "#5c93bb2b",
@@ -85,21 +89,23 @@ const markdownStyle: CSSRules = {
   },
 
   table: {
+    display: "block",
     margin: "1em 0",
+    width: "auto",
+    overflow: "auto",
+    borderCollapse: "collapse",
+    lineHeight: "1.5",
   },
   thead: {
     background: "#e4edf3",
   },
   th: {
-    padding: "0.5em",
-    border: "1px solid #cccddd",
     fontWeight: "bold",
   },
-  td: {
+  "th,td": {
     padding: "0.5em",
     border: "1px solid #cccddd",
   },
-
   hr: {
     margin: "2em 0",
   },
@@ -109,6 +115,7 @@ const markdownStyle: CSSRules = {
     border: "1px solid #5c93bb2b",
     borderRadius: "0.6em",
     boxShadow: "0px 2px 3px -2px #00000010",
+    wordWrap: "break-word",
   },
   summary: {
     cursor: "pointer",
@@ -120,26 +127,29 @@ const markdownStyle: CSSRules = {
     padding: "0.6em",
   },
   "details[open] summary": {
-    backgroundColor: "#bbbbbb2b",
+    // backgroundColor: "#bbbbbb2b",
     borderBottom: "1px solid #5c93bb2b",
+    borderRadius: "0.6rem 0.6rem 0 0",
     marginBottom: "0.6em",
   },
 };
 
 const syntsxHighlightStyle: CSSRules = {
   pre: {
-    margin: "1em 0",
+    margin: "1em -0.5em",
   },
   "pre code": {
     display: "block",
     backgroundColor: "#283042",
     padding: "1em 0.8em",
     margin: "auto auto",
-    borderRadius: "1em",
+    borderRadius: "0.75em",
     color: "#fff",
     fontSize: "0.9em",
+    lineHeight: "1.5",
     overflowX: "auto",
   },
+
   ".keyword": { color: "#f8baff" },
   ".string": { color: "#c5e797" },
   ".number": { color: "#c5e797" },

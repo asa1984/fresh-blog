@@ -16,11 +16,11 @@ export default function Home({ data }: PageProps<{ content: string }>) {
       <Head>
         <title>Fresh App</title>
       </Head>
-      {/* <article class="bg-gray-100 pb-16"> */}
-      <div class="max-w-3xl py-12 px-[4vw] m-auto text-[16px] leading-[1.75] bg-white rounded-2xl">
-        <Markdown markdown={data.content} />
-      </div>
-      {/* </article> */}
+      <article class="">
+        <div class="max-w-3xl p-[4vw] m-auto text-[16px] leading-[1.75] bg-white rounded-2xl">
+          <Markdown markdown={data.content} />
+        </div>
+      </article>
     </>
   );
 }
