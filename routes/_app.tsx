@@ -17,9 +17,18 @@ export default function App({ Component }: AppProps) {
         />
 
         <style>
-          {`body{font-family:'Noto Sans JP', meiryo, sans-serif;}body::-webkit-scrollbar{width: 16px;}body::-webkit-scrollbar-thumb{min-height: 16vh;border-radius: 8px;border: 4px solid transparent;background-clip: content-box;background-color: #bbbbbbcc;}`}
+          {`body{font-family:meiryo, 'Noto Sans JP', meiryo, sans-serif;}body::-webkit-scrollbar{width: 16px;}body::-webkit-scrollbar-thumb{min-height: 16vh;border-radius: 8px;border: 4px solid transparent;background-clip: content-box;background-color: #bbbbbbcc;}`}
         </style>
       </Head>
+      {
+        /* <header className="flex justify-between">
+        <h1>Blog</h1>
+        <div className="flex">
+          <div>Article</div>
+          <div>Dialog</div>
+        </div>
+      </header> */
+      }
       <Component />
     </>
   );

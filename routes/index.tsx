@@ -1,26 +1,25 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Head } from "$fresh/runtime.ts";
-import { Markdown } from "@/features/markdown/mod.ts";
+import { Article, getArticles } from "@/libs/article.ts";
+import { PostCard } from "@/components/PostCard.tsx";
 
 export const handler: Handlers = {
   async GET(_, ctx) {
-    const url = new URL("../_post/example.md", import.meta.url);
-    const md = await Deno.readTextFile(url);
-    return ctx.render({ content: md });
+    const articles = await getArticles();
+    return ctx.render(articles);
   },
 };
 
-export default function Home({ data }: PageProps<{ content: string }>) {
+export default function Home({ data }: PageProps<Article[]>) {
   return (
     <>
       <Head>
         <title>Fresh App</title>
       </Head>
-      <article class="">
-        <div class="max-w-3xl p-[4vw] m-auto text-[16px] leading-[1.75] bg-white rounded-2xl">
-          <Markdown markdown={data.content} />
-        </div>
-      </article>
+
+      <div className="max-w-3xl p-4 sm:p-8 m-auto text-[16px] leading-[1.75] bg-white lg:rounded-3xl">
+        {data.map((v) => <PostCard {...v} />)}
+      </div>
     </>
   );
 }

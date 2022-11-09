@@ -13,4 +13,5 @@ export const components: Components = {
   ),
   code: ({ inline, className, children }) =>
     CodeBlock({ inline, className, children }),
+  sup: ({ children }) => <sup>{`[${children}]`}</sup>,
 };

@@ -119,15 +119,17 @@ const markdownStyle: CSSRules = {
   },
   summary: {
     cursor: "pointer",
-    // fontWeight: "bolder",
     padding: "0.6em",
     margin: "-0.6em -0.6em 0",
+    overflow: "hidden",
+  },
+  "summary:hover": {
+    backgroundColor: "#f9fafb",
   },
   "details[open]": {
     padding: "0.6em",
   },
   "details[open] summary": {
-    // backgroundColor: "#bbbbbb2b",
     borderBottom: "1px solid #5c93bb2b",
     borderRadius: "0.6rem 0.6rem 0 0",
     marginBottom: "0.6em",

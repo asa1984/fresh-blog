@@ -10,7 +10,7 @@ export const Anchor = (
     return (
       <div className="my-4">
         <iframe
-          src={`api/embed/${encoded}`}
+          src={`/api/embed/${encoded}`}
           loading="lazy"
           scrolling="no"
           className="w-full h-[120px] border-1 rounded-lg overflow-hidden"

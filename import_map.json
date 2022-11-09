@@ -1,13 +1,15 @@
 {
   "imports": {
     "@/": "./",
-    "$std/": "https://deno.land/std@0.160.0/",
+    "$std/": "https://deno.land/std@0.162.0/",
     "$fresh/": "https://deno.land/x/fresh@1.1.2/",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.0.1",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.0.3",
     "preact-render-to-string": "https://esm.sh/*preact-render-to-string@5.2.4",
     "preact": "https://esm.sh/preact@10.11.0",
     "preact/": "https://esm.sh/preact@10.11.0/",
+    "twind": "https://esm.sh/twind@0.16.17",
+    "twind/": "https://esm.sh/twind@0.16.17/",
     "react-markdown": "https://esm.sh/react-markdown@7.1.2?alias=react:preact/compat",
     "react-markdown/lib/ast-to-react": "https://esm.sh/react-markdown@7.1.2/lib/ast-to-react?alias=react:preact/compat",
     "react-syntax-highlighter": "https://esm.sh/react-syntax-highlighter@15.5.0?alias=react:preact/compat",
@@ -15,8 +17,6 @@
     "rehype-raw": "https://esm.sh/rehype-raw@6.1.1",
     "rehypw-sanitize": "https://esm.sh/rehype-sanitize@5.0.1",
     "remark-gfm": "https://esm.sh/remark-gfm@3.0.1",
-    "twind": "https://esm.sh/twind@0.16.17",
-    "twind/": "https://esm.sh/twind@0.16.17/",
     "deno-dom/": "https://deno.land/x/deno_dom@v0.1.35-alpha/"
   },
   "scopes": {}

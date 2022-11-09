@@ -26,6 +26,7 @@ export const handler: Handlers<OGP> = {
         previous[property] = content;
         return previous;
       }, {});
+
     return await ctx.render({
       url: ogp["og:url"] || decoded,
       title: ogp["og:title"] || dom.title || "No Title",
@@ -38,15 +39,15 @@ export const handler: Handlers<OGP> = {
 export default function EmbedLinkCard({ data }: PageProps<OGP>) {
   const { url, title, image, domain } = data;
   return (
-    <div class="w-full h-[120px]">
+    <div class="w-full h-[120px] hover:bg-gray-50">
       <a
         href={url}
         target="_blank"
         rel="nofollow noopener noreferrer"
-        class="flex justify-between h-full"
+        class="h-full flex justify-between"
       >
         <div class="self-center p-4">
-          <h1 class="max-h-12 w-full font-bold text-base overflow-hidden">
+          <h1 class="max-h-12 w-full text-base font-bold overflow-hidden">
             {title}
           </h1>
           <div class="flex self-center mt-4 overflow-hidden text-gray-700 text-[16px] leading-none">
@@ -55,7 +56,7 @@ export default function EmbedLinkCard({ data }: PageProps<OGP>) {
               alt={domain}
               class="w-[16px] h-[16px] mr-1"
             />
-            {domain}
+            <small>{domain}</small>
           </div>
         </div>
         <div class="flex-shrink-0 bg-gray-50">
