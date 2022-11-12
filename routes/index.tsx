@@ -1,9 +1,9 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { Head } from "$fresh/runtime.ts";
 import { Article } from "@/types/mod.ts";
 import { getArticles } from "@/libs/article.ts";
 import { PostCard } from "@/components/PostCard.tsx";
 import { Header } from "@/components/Header.tsx";
+import { ContentMeta } from "@/components/ContentMeta.tsx";
 
 export const handler: Handlers = {
   async GET(_, ctx) {
@@ -16,10 +16,7 @@ export const handler: Handlers = {
 export default function Home({ data }: PageProps<Article[]>) {
   return (
     <>
-      <Head>
-        <title>Fresh App</title>
-      </Head>
-
+      <ContentMeta />
       <div className="max-w-2xl p-4 sm:p-8 m-auto text-[16px] leading-[1.75] bg-white">
         <Header />
         {data.map((v) => <PostCard {...v} />)}

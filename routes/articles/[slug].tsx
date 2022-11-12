@@ -1,6 +1,6 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Markdown } from "@/features/markdown/mod.ts";
-import { ContentMeta } from "@/features/content_meta/mod.ts";
+import { ContentMeta } from "@/components/ContentMeta.tsx";
 import { Article } from "@/types/mod.ts";
 import { getArticle } from "@/libs/article.ts";
 
