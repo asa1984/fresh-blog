@@ -33,12 +33,18 @@ const markdownStyle: CSSRules = {
   p: {
     marginTop: "0.3em",
   },
+  strong: {
+    fontWeight: "500",
+  },
   em: {
     fontStyle: "italic",
   },
   a: {
     color: "#0856fd",
     wordWrap: "break-word",
+  },
+  "a:hover": {
+    borderBottom: "1px solid #0856fd",
   },
   ".contains-task-list": {
     paddingLeft: "0.5em",

@@ -2,10 +2,8 @@
 title: Markdownブログをテストする
 overview: Markdownパーサーのテスト用記事
 publish: true
-published_at: 2022/11/8
+date: 2022/11/8
 ---
-
-この記事はテスト用のサンプルです。
 
 # `H1`一番大きな見出し
 
