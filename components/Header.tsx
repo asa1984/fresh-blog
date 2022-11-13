@@ -3,7 +3,7 @@ import * as Icons from "./Icons.tsx";
 export const Header = () => {
   return (
     <header className="flex justify-between items-center">
-      <a href="/" className="font-bold text-3xl text-blue-500 select-none">
+      <a href="/" className="font-extrabold text-3xl text-blue-500 select-none">
         Tech-Blog
       </a>
       <nav className="flex gap-x-1 text-lg font-medium">

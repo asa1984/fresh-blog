@@ -9,7 +9,7 @@ export type ContentMetaProps = {
 export const ContentMeta = (
   {
     title = "tech-blog",
-    description = "Personal blog of Asahi Sato",
+    description = "Personal blog by Asahi Sato",
     type = "website",
   }: ContentMetaProps,
 ) => {

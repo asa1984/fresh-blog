@@ -3,6 +3,8 @@ import { Markdown } from "@/features/markdown/mod.ts";
 import { ContentMeta } from "@/components/ContentMeta.tsx";
 import { Article } from "@/types/mod.ts";
 import { getArticle } from "@/libs/article.ts";
+import { Layout } from "@/components/Layout.tsx";
+import * as Icons from "@/components/Icons.tsx";
 
 export const handler: Handlers = {
   async GET(_, ctx) {
@@ -16,18 +18,17 @@ export default function ArticlePage({ data }: PageProps<Article>) {
   return (
     <>
       <ContentMeta title={data.title} description={data.overview} />
-      <div className="min-h-screen overflow-hidden bg-gray-100">
-        <article className="max-w-4xl mx-auto text-[16px] leading-[1.75]">
-          <header className="my-16 mx-auto px-4">
+
+      <Layout>
+        <article className="max-w-2xl mx-auto">
+          <header className="my-16">
             <h1 className="text-3xl font-bold mx-auto max-w-max">
               {data.title}
             </h1>
-            <div className="mt-8 text-center">
-              <span className="font-medium mr-2">
-                {"Published"}
-              </span>
+            <div className="mt-8 mx-auto max-w-max flex justify-center content-center">
+              <Icons.Pen className="m-auto mr-2 text-gray-700" />
               <time
-                className="mt-2 text-base"
+                className="block"
                 dateTime={data.date.toJSON()}
               >
                 {data.date.toLocaleDateString()}
@@ -35,11 +36,9 @@ export default function ArticlePage({ data }: PageProps<Article>) {
             </div>
             <p className="mt-2 mx-auto max-w-max">{data.overview}</p>
           </header>
-          <div className="p-4 sm:p-10 md:rounded-2xl bg-white">
-            <Markdown markdown={data.content} />
-          </div>
+          <Markdown markdown={data.content} />
         </article>
-      </div>
+      </Layout>
     </>
   );
 }
