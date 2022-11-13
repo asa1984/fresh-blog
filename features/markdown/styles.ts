@@ -39,6 +39,7 @@ const markdownStyle: CSSRules = {
   a: {
     color: "#0856fd",
     wordWrap: "break-word",
+    transition: "150ms",
   },
   "a:hover": {
     borderBottom: "1px solid #0856fd",
