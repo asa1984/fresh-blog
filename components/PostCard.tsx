@@ -4,25 +4,31 @@ export const PostCard = (props: Article) => {
   const progressDate = (() => {
     const diffMS = Date.now() - props.date.getTime();
     const progress = new Date(diffMS);
-    if (progress.getUTCFullYear() - 1970) {
-      return `${progress.getUTCFullYear() - 1970}年前`;
-    } else if (progress.getUTCMonth()) {
-      return `${progress.getUTCMonth()}ヶ月前`;
-    } else if (progress.getUTCDate() - 1) {
-      return `${progress.getUTCDate() - 1}日前`;
+    const progressYear = progress.getUTCFullYear() - 1970;
+    const progressMonth = progress.getUTCMonth();
+    const progressDate = progress.getUTCDate() - 1;
+    if (progressYear) {
+      return progressYear === 1 ? "Last year" : `${progressYear} years ago`;
+    } else if (progressMonth) {
+      return progressMonth === 1 ? "Last month" : `${progressMonth} months ago`;
+    } else if (progressDate) {
+      return progressDate === 1 ? "Yesterday" : `${progressDate} days ago`;
     } else {
-      return "今日";
+      return "Today";
     }
   })();
 
   return (
-    <div className="my-6">
+    <div className="mt-8">
       <a href={`/articles/${props.slug}`}>
         <h2 className="font-bold text-3xl">{props.title}</h2>
       </a>
-      <div className="mt-2">
+      <div className="mt-1.5">
         <p>{props.overview}</p>
-        <time className="text-sm" dateTime={props.date.toJSON()}>
+        <time
+          className="font-medium text-gray-500"
+          dateTime={props.date.toJSON()}
+        >
           {progressDate}
         </time>
       </div>

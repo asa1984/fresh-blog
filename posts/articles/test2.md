@@ -2,7 +2,7 @@
 title: Markdownブログをテストする
 overview: Markdownパーサーのテスト用記事
 publish: true
-date: 2022/11/8
+date: 2022/11/12
 ---
 
 # `H1`一番大きな見出し
@@ -15,8 +15,6 @@ date: 2022/11/8
 <script>console.log(Date.now)</script>
 
 `Paragragh`とは日本語で言う段落のことです。HTMLにはタグ内の改行が反映される要素はごく少数しかありません。基本的に改行したいときはPタグを複数使いましょう。
-
-<br/>
 
 注釈は機能するのか[^0]
 

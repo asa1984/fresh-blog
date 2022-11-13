@@ -3,9 +3,12 @@ import { Anchor } from "./components/Anchor.tsx";
 import { CodeBlock } from "./components/CodeBlock.tsx";
 
 export const components: Components = {
-  h4: "h3",
-  h5: "h3",
-  h6: "h3",
+  h1: "h2",
+  h2: "h3",
+  h3: "h4",
+  h4: "h4",
+  h5: "h4",
+  h6: "h4",
   a: ({ href, id, title, className, children }) =>
     Anchor({ href, id, title, className, children }),
   img: ({ src, alt, title }) => (
