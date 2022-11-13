@@ -17,7 +17,8 @@
     "twind": "https://esm.sh/twind@0.16.17",
     "twind/": "https://esm.sh/twind@0.16.17/",
     "react": "https://esm.sh/v96/preact@10.11.2/compat",
-    "zod": "https://deno.land/x/zod@v3.19.1/mod.ts"
+    "zod": "https://deno.land/x/zod@v3.19.1/mod.ts",
+    "tabler-icons-tsx/": "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/"
   },
   "scopes": {}
 }

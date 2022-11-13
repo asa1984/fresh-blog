@@ -4,7 +4,7 @@ import { ContentMeta } from "@/components/ContentMeta.tsx";
 import { Article } from "@/types/mod.ts";
 import { getArticle } from "@/libs/article.ts";
 import { Layout } from "@/components/Layout.tsx";
-import * as Icons from "@/components/Icons.tsx";
+import IconPencil from "tabler-icons-tsx/pencil.tsx";
 
 export const handler: Handlers = {
   async GET(_, ctx) {
@@ -26,7 +26,7 @@ export default function ArticlePage({ data }: PageProps<Article>) {
               {data.title}
             </h1>
             <div className="mt-8 mx-auto max-w-max flex justify-center content-center">
-              <Icons.Pen className="m-auto mr-2 text-gray-700" />
+              <IconPencil className="w-5 h-5 m-auto mr-2 text-gray-700" />
               <time
                 className="block"
                 dateTime={data.date.toJSON()}

@@ -1,4 +1,4 @@
-import * as Icons from "./Icons.tsx";
+import IconBrandGithub from "tabler-icons-tsx/brand-github.tsx";
 
 export const Header = () => {
   return (
@@ -16,7 +16,7 @@ export const Header = () => {
           rel="nofollow noopener noreferrer"
           className="flex py-1 px-2 rounded-lg hover:bg-gray-100"
         >
-          <Icons.GitHub className="m-auto" />
+          <IconBrandGithub className="w-5 h-5 m-auto mr-0.5" />
           <span className="hidden sm:inline">Source</span>
         </a>
       </nav>
