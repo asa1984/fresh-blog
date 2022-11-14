@@ -1,6 +1,5 @@
 import { IS_BROWSER } from "$fresh/runtime.ts";
 import { useEffect, useState } from "preact/hooks";
-import { lazy, Suspense } from "preact/compat";
 import IconSun from "tabler-icons-tsx/sun.tsx";
 import IconMoon from "tabler-icons-tsx/moon.tsx";
 
@@ -18,27 +17,38 @@ const useTheme = () => {
   };
 
   useEffect(() => {
+    const documentClassList = document.documentElement.classList;
+    const iframes = Array.from(document.getElementsByTagName("iframe"));
+    const storage = window.sessionStorage;
     if (isDark) {
-      document.documentElement.classList.add("dark");
-      window.sessionStorage.setItem("theme", "dark");
+      // document.documentElement.classList.add("dark");
+      // window.sessionStorage.setItem("theme", "dark");
+      documentClassList.add("dark");
+      iframes.map((iframe) =>
+        iframe.contentWindow?.document.documentElement.classList.add("dark")
+      );
+      storage.setItem("theme", "dark");
     } else {
-      document.documentElement.classList.remove("dark");
-      window.sessionStorage.setItem("theme", "light");
+      // document.documentElement.classList.remove("dark");
+      // window.sessionStorage.setItem("theme", "light");
+      documentClassList.remove("dark");
+      iframes.map((iframe) =>
+        iframe.contentWindow?.document.documentElement.classList.remove("dark")
+      );
+      storage.setItem("theme", "light");
     }
+    // iframes.map((iframe) => {
+    //   iframe.contentWindow?.document.location.reload();
+    // });
   }, [isDark]);
   return { isDark, toggle };
 };
 
 export default function ThemeToggleButton(props: { className?: string }) {
-  const [isMounted, setIsMounted] = useState(false);
   const { isDark, toggle } = useTheme();
-  useEffect(() => {
-    setIsMounted(() => true);
-  }, []);
-
   return (
     <div
-      className={`delay-[50ms] ${isMounted ? "visible" : "invisible"}`}
+      className={`delay-[50ms] ${IS_BROWSER ? "visible" : "invisible"}`}
     >
       <button
         onClick={toggle}
@@ -55,5 +65,3 @@ export default function ThemeToggleButton(props: { className?: string }) {
     </div>
   );
 }
-
-// ${isDark ? "bg-purple-500" : "bg-red-500"}

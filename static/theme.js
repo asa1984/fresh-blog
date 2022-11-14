@@ -1,7 +1,7 @@
 // フラッシュ防止の為、bodyタグの読み込み前にダークテーマ適用
 (() => {
   if (
-    !("theme" in localStorage) &&
+    !("theme" in sessionStorage) &&
     (window.matchMedia("(prefers-color-scheme: dark)").matches)
   ) {
     document.documentElement.classList.add("dark");

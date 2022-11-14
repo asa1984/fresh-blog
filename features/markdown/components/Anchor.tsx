@@ -1,19 +1,20 @@
 import { JSX } from "preact";
+import LinkCard from "@/islands/LinkCard.tsx";
 
 type AnchorProps = JSX.HTMLAttributes<HTMLAnchorElement>;
 
 export const Anchor = (
   { href, id, className, children }: AnchorProps,
 ) => {
+  if (!href) return <></>;
   if (String(children) === "@card") {
-    const encoded = encodeURIComponent(href ?? "");
     return (
-      <div className="my-4">
+      <div className="my-4 h-[120px] border-1 border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
         <iframe
-          src={`/api/embed/${encoded}`}
+          src={`/api/embed/${encodeURIComponent(href)}`}
           loading="lazy"
           scrolling="no"
-          className="w-full h-[120px] border-1 rounded-lg overflow-hidden"
+          className="w-full h-[120px]"
         >
         </iframe>
       </div>

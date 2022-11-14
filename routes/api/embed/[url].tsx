@@ -17,7 +17,7 @@ export const handler: Handlers<OGP> = {
     if (!dom) throw new Error("dom is not dound");
 
     const metaElements = dom.getElementsByTagName("meta");
-    const ogp = metaElements
+    const meta = metaElements
       .filter((elem) => elem.hasAttribute("property"))
       .reduce((previous: Record<string, string | null>, current) => {
         const property = current.getAttribute("property");
@@ -26,20 +26,23 @@ export const handler: Handlers<OGP> = {
         previous[property] = content;
         return previous;
       }, {});
-
-    return await ctx.render({
-      url: ogp["og:url"] || decoded,
-      title: ogp["og:title"] || dom.title || "No Title",
-      image: ogp["og:image"] ?? "",
-      domain: new URL(ogp["og:url"]!).hostname ?? "",
-    });
+    const ogp: OGP = {
+      url: meta["og:url"] || decoded,
+      title: meta["og:title"] || dom.title || "No Title",
+      image: meta["og:image"] ?? "",
+      domain: new URL(meta["og:url"]!).hostname ?? "",
+    };
+    // return new Response(JSON.stringify(ogp), {
+    //   headers: { "Content-Type": "application/json" },
+    // });
+    return ctx.render(ogp);
   },
 };
 
 export default function EmbedLinkCard({ data }: PageProps<OGP>) {
   const { url, title, image, domain } = data;
   return (
-    <div class="w-full h-[120px] hover:bg-gray-50">
+    <div class="w-full h-[120px] text-black dark:text-white">
       <a
         href={url}
         target="_blank"
@@ -50,13 +53,15 @@ export default function EmbedLinkCard({ data }: PageProps<OGP>) {
           <h1 class="max-h-12 w-full text-base font-bold overflow-hidden">
             {title}
           </h1>
-          <div class="flex self-center mt-4 overflow-hidden text-gray-700 text-[16px] leading-none">
+          <div class="flex self-center mt-4 overflow-hidden ">
             <img
               src={`http://www.google.com/s2/favicons?size=16&domain_url=${domain}`}
               alt={domain}
               class="w-[16px] h-[16px] mr-1"
             />
-            <small>{domain}</small>
+            <small className="text-gray-500 dark:text-gray-300 text-base leading-none font-medium">
+              {domain}
+            </small>
           </div>
         </div>
         <div class="flex-shrink-0 bg-gray-50">

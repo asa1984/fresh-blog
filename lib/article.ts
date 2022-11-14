@@ -1,7 +1,7 @@
 import { Article, articleSchema } from "@/types/mod.ts";
 import { join } from "$std/path/mod.ts";
 import { extract } from "$std/encoding/front_matter.ts";
-import { z } from "https://deno.land/x/zod@v3.19.1/index.ts";
+import { z } from "zod";
 
 export async function getArticle(slug: string): Promise<Article | null> {
   const path = join("./posts/articles/", `${slug}.md`);

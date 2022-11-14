@@ -1,8 +1,7 @@
 import { OGP } from "./types.ts";
 import { DOMParser } from "deno-dom/deno-dom-wasm.ts";
 
-// deno-lint-ignore no-explicit-any
-const isOGP = (arg: any): arg is OGP => {
+const isOGP = (arg: unknown): arg is OGP => {
   const { url, title, image, domain } = arg as OGP;
   return typeof url === "string" && typeof title === "string" &&
     typeof image === "string" && typeof domain === "string";

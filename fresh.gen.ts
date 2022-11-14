@@ -8,7 +8,8 @@ import * as $1 from "./routes/_app.tsx";
 import * as $2 from "./routes/api/embed/[url].tsx";
 import * as $3 from "./routes/articles/[slug].tsx";
 import * as $4 from "./routes/index.tsx";
-import * as $$0 from "./islands/ThemeToggleButton.tsx";
+import * as $$0 from "./islands/LinkCard.tsx";
+import * as $$1 from "./islands/ThemeToggleButton.tsx";
 
 const manifest = {
   routes: {
@@ -19,7 +20,8 @@ const manifest = {
     "./routes/index.tsx": $4,
   },
   islands: {
-    "./islands/ThemeToggleButton.tsx": $$0,
+    "./islands/LinkCard.tsx": $$0,
+    "./islands/ThemeToggleButton.tsx": $$1,
   },
   baseUrl: import.meta.url,
   config,

@@ -1,9 +1,10 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Article } from "@/types/mod.ts";
-import { getArticles } from "@/libs/article.ts";
+import { getArticles } from "@/lib/article.ts";
 import { PostCard } from "@/components/PostCard.tsx";
 import { ContentMeta } from "@/components/ContentMeta.tsx";
 import { Layout } from "@/components/Layout.tsx";
+import Card from "@/islands/LinkCard.tsx";
 
 export const handler: Handlers = {
   async GET(_, ctx) {

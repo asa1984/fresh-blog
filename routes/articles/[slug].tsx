@@ -2,7 +2,7 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import { Markdown } from "@/features/markdown/mod.ts";
 import { ContentMeta } from "@/components/ContentMeta.tsx";
 import { Article } from "@/types/mod.ts";
-import { getArticle } from "@/libs/article.ts";
+import { getArticle } from "@/lib/article.ts";
 import { Layout } from "@/components/Layout.tsx";
 import IconPencil from "tabler-icons-tsx/pencil.tsx";
 
