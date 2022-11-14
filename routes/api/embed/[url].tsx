@@ -1,12 +1,12 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { DOMParser } from "deno-dom/deno-dom-wasm.ts";
 
-interface OGP {
+type OGP = {
   url: string;
   title: string;
   image: string;
   domain: string;
-}
+};
 
 export const handler: Handlers<OGP> = {
   async GET(_, ctx) {
@@ -32,9 +32,6 @@ export const handler: Handlers<OGP> = {
       image: meta["og:image"] ?? "",
       domain: new URL(meta["og:url"]!).hostname ?? "",
     };
-    // return new Response(JSON.stringify(ogp), {
-    //   headers: { "Content-Type": "application/json" },
-    // });
     return ctx.render(ogp);
   },
 };

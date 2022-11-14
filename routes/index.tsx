@@ -4,7 +4,6 @@ import { getArticles } from "@/lib/article.ts";
 import { PostCard } from "@/components/PostCard.tsx";
 import { ContentMeta } from "@/components/ContentMeta.tsx";
 import { Layout } from "@/components/Layout.tsx";
-import Card from "@/islands/LinkCard.tsx";
 
 export const handler: Handlers = {
   async GET(_, ctx) {
