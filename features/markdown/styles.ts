@@ -1,4 +1,4 @@
-import { CSSRules } from "twind/css";
+import { apply, CSSRules, theme } from "twind/css";
 
 const markdownStyle: CSSRules = {
   "h2, h3, h4": {
@@ -36,14 +36,15 @@ const markdownStyle: CSSRules = {
   em: {
     fontStyle: "italic",
   },
-  a: {
-    color: "#0856fd",
-    wordWrap: "break-word",
-    transition: "150ms",
-  },
-  "a:hover": {
-    borderBottom: "1px solid #0856fd",
-  },
+  // a: {
+  //   color: theme("colors.blue.500"),
+  //   wordWrap: "break-word",
+  // },
+  // "a:hover": {
+  //   borderBottom: "1px solid",
+  //   borderBottomColor: theme("colors.blue.500"),
+  // },
+  a: apply("text-blue-500 hover:border-b-1 border-blue-500"),
   ".contains-task-list": {
     paddingLeft: "0.5rem",
     listStyle: "none",
@@ -64,21 +65,14 @@ const markdownStyle: CSSRules = {
   "li::marker": {
     fontSize: "1.1rem",
     fontWeight: "bold",
-    color: "#556677",
+    color: theme("colors.gray.500"),
   },
   "ol li": {
     paddingLeft: "0.2rem",
   },
-  blockquote: {
-    fontStyle: "italic",
-    borderLeft: "3px solid #a0aabb",
-    fontSize: "0.95rem",
-    color: "#5f5f5f",
-    paddingLeft: "0.8rem",
-    paddingTop: "0.5rem",
-    paddingBottom: "0.8rem",
-    margin: "1rem 0",
-  },
+  blockquote: apply(
+    "mt-4 pl-3 pt-0.5 pb-4 border-l-4 border-gray-400 text-gray-600 dark:text-gray-300 italic",
+  ),
   code: {
     wordBreak: "break-word",
     padding: "0.1rem 0.4rem",
@@ -97,50 +91,36 @@ const markdownStyle: CSSRules = {
     borderCollapse: "collapse",
     lineHeight: "1.5",
   },
-  thead: {
-    background: "#e4edf3",
-  },
+  thead: apply("bg-gray-300 dark:bg-gray-600"),
   th: {
     fontWeight: "bold",
   },
   "th,td": {
     padding: "0.5rem",
-    border: "1px solid #cccddd",
+    border: "1px solid",
+    borderColor: theme("colors.gray.400"),
   },
   hr: {
     margin: "2rem 0",
   },
-  details: {
-    marginTop: "1rem",
-    padding: "0.6rem 0.6rem 0",
-    border: "1px solid #5c93bb2b",
-    borderRadius: "0.6rem",
-    boxShadow: "0px 2px 3px -2px #00000010",
-    wordWrap: "break-word",
-  },
-  summary: {
-    cursor: "pointer",
-    padding: "0.6rem",
-    margin: "-0.6rem -0.6rem 0",
-    overflow: "hidden",
-  },
-  "summary:hover": {
-    backgroundColor: "#f9fafb",
-  },
-  "details[open]": {
-    padding: "0.6rem",
-  },
-  "details[open] summary": {
-    borderBottom: "1px solid #5c93bb2b",
-    borderRadius: "0.6rem 0.6rem 0 0",
-    marginBottom: "0.6rem",
-  },
+  details: apply(
+    "mt-4 pt-2 px-2 border-1 border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden",
+  ),
+  summary: apply(
+    "mt-[-0.5rem] mx-[-0.5rem] p-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition cursor-pointer",
+  ),
+  "details[open]": apply("p-2"),
+  "details[open] summary": apply(
+    "mb-2 border-b-1 border-gray-300 dark:border-gray-600 transition-none  rounded-tr-lg rounded-tl-lg",
+  ),
 };
 
 const syntsxHighlightStyle: CSSRules = {
   pre: {
     margin: "1rem -0.5rem",
+    maxBlockSize: "max-content",
   },
+  "pre div": { visibility: "" },
   "pre code": {
     display: "block",
     backgroundColor: "#283042",

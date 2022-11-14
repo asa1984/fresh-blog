@@ -42,7 +42,7 @@ _**STRONG ITARIA**_
 
 ---
 
-![image](/logo.svg)
+![これは美味しいレモン](/logo.svg)
 
 [@card](https://qiita.com/Qiita/items/c686397e4a0f4f11683d)
 

@@ -13,7 +13,7 @@ export const handler: Handlers = {
   },
 };
 
-export default function Home({ data }: PageProps<Article[]>) {
+export default function HomePage({ data }: PageProps<Article[]>) {
   return (
     <>
       <ContentMeta />

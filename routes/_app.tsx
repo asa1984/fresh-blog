@@ -12,6 +12,7 @@ export default function App({ Component }: AppProps) {
         <style>
           {`html{overflow-y: scroll;}body{font-family:'Segoe UI',sans-serif;}`}
         </style>
+        <script src="/theme.js"></script>
       </Head>
       <Component />
     </>

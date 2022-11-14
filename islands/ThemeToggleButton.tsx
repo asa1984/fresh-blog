@@ -1,5 +1,6 @@
 import { IS_BROWSER } from "$fresh/runtime.ts";
 import { useEffect, useState } from "preact/hooks";
+import { lazy, Suspense } from "preact/compat";
 import IconSun from "tabler-icons-tsx/sun.tsx";
 import IconMoon from "tabler-icons-tsx/moon.tsx";
 
@@ -29,15 +30,30 @@ const useTheme = () => {
 };
 
 export default function ThemeToggleButton(props: { className?: string }) {
+  const [isMounted, setIsMounted] = useState(false);
   const { isDark, toggle } = useTheme();
+  useEffect(() => {
+    setIsMounted(() => true);
+  }, []);
+
   return (
-    <button
-      onClick={toggle}
-      className={`m-auto p-1.5 border-none rounded-md opacity-90 hover:opacity-100 transition ${
-        isDark ? "bg-purple-400" : "bg-red-400"
-      } ${props.className}`}
+    <div
+      className={`delay-[50ms] ${isMounted ? "visible" : "invisible"}`}
     >
-      {isDark ? <IconMoon /> : <IconSun />}
-    </button>
+      <button
+        onClick={toggle}
+        className={`m-auto p-1.5 rounded-md transition 
+        ${
+          isDark
+            ? "bg-purple-500 hover:bg-purple-600"
+            : "bg-red-400 hover:bg-red-500"
+        }
+        ${props.className}`}
+      >
+        {isDark ? <IconMoon /> : <IconSun />}
+      </button>
+    </div>
   );
 }
+
+// ${isDark ? "bg-purple-500" : "bg-red-500"}

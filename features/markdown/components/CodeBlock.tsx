@@ -1,5 +1,6 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { JSX } from "preact";
+import { style } from "../styles.ts";
 
 export type CodeBlockProps = JSX.HTMLAttributes<HTMLElement> & {
   inline?: boolean;
@@ -12,9 +13,9 @@ export const CodeBlock = (
   return inline ? <code>{children}</code> : (
     <SyntaxHighlighter
       language={langName}
-      PreTag="div"
-      style={{}}
+      PreTag={({ children }) => <>{children}</>}
       wrapLines={true}
+      style={{ "pre div": { backgroundColor: "transparent" } }}
       // showLineNumbers
       // lineNumberStyle={(lineNum) => {
       //   return { display: "none" };

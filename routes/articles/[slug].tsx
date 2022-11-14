@@ -26,7 +26,7 @@ export default function ArticlePage({ data }: PageProps<Article>) {
               {data.title}
             </h1>
             <div className="mt-8 mx-auto max-w-max flex justify-center content-center">
-              <IconPencil className="w-5 h-5 m-auto mr-2 text-gray-700" />
+              <IconPencil className="w-5 h-5 m-auto mr-2 text-gray-500" />
               <time
                 className="block"
                 dateTime={data.date.toJSON()}

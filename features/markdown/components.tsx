@@ -11,9 +11,7 @@ export const components: Components = {
   h6: "h4",
   a: ({ href, id, title, className, children }) =>
     Anchor({ href, id, title, className, children }),
-  img: ({ src, alt, title }) => (
-    <img src={src} alt={alt} loading="lazy" title={title} />
-  ),
+  img: ({ src, alt }) => <img src={src} alt={alt} loading="lazy" />,
   code: ({ inline, className, children }) =>
     CodeBlock({ inline, className, children }),
   sup: ({ children }) => <sup>{`[${children}]`}</sup>,
