@@ -3,29 +3,30 @@ import { apply, CSSRules, theme } from "twind/css";
 const markdownStyle: CSSRules = {
   "h2, h3, h4": {
     fontWeight: "bold",
+    lineHeight: "1.4",
     wordBreak: "break-word",
   },
   h2: {
     fontSize: "1.6rem",
-    marginTop: "1.2rem",
+    marginTop: "2rem",
     borderBottomWidth: "1px",
     borderBottomStyle: "solid",
     borderBottomColor: "#5c93bb2b",
   },
   h3: {
     fontSize: "1.4rem",
-    marginTop: "1rem",
+    marginTop: "1.8rem",
   },
   h4: {
     fontSize: "1.2rem",
-    marginTop: "0.8rem",
+    marginTop: "1.6rem",
   },
   img: {
     margin: "2rem auto",
     maxWidth: "100%",
     height: "auto",
     cursor: "pointer",
-    borderRadius: "1rem",
+    borderRadius: "0.5rem",
   },
   p: {
     marginTop: "1rem",
@@ -36,14 +37,6 @@ const markdownStyle: CSSRules = {
   em: {
     fontStyle: "italic",
   },
-  // a: {
-  //   color: theme("colors.blue.500"),
-  //   wordWrap: "break-word",
-  // },
-  // "a:hover": {
-  //   borderBottom: "1px solid",
-  //   borderBottomColor: theme("colors.blue.500"),
-  // },
   a: apply("text-blue-500 hover:border-b-1 border-blue-500"),
   ".contains-task-list": {
     paddingLeft: "0.5rem",
@@ -104,7 +97,7 @@ const markdownStyle: CSSRules = {
     margin: "2rem 0",
   },
   details: apply(
-    "mt-4 pt-2 px-2 border-1 border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden",
+    "my-6 pt-2 px-2 border-1 border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden",
   ),
   summary: apply(
     "mt-[-0.5rem] mx-[-0.5rem] p-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition cursor-pointer",
@@ -117,7 +110,7 @@ const markdownStyle: CSSRules = {
 
 const syntsxHighlightStyle: CSSRules = {
   pre: {
-    margin: "1rem -0.5rem",
+    margin: "1.5rem -0.5rem",
     maxBlockSize: "max-content",
   },
   "pre div": { visibility: "" },
@@ -139,6 +132,8 @@ const syntsxHighlightStyle: CSSRules = {
   ".operator": { color: "#f6c77b" },
   ".punctuation": { color: "#aaaaaa" },
   ".comment": { color: "#aaaaaa" },
+  // ".tag": { color: "#d5787b" },
+  // ".tag.punctuation": { color: "#aaaaaa" },
 };
 
 export const style = { ...markdownStyle, ...syntsxHighlightStyle };

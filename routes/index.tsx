@@ -18,7 +18,7 @@ export default function HomePage({ data }: PageProps<Article[]>) {
     <>
       <ContentMeta />
       <Layout>
-        <div className="mt-16 max-w-xl mx-auto">
+        <div className="mt-12 max-w-xl mx-auto">
           {data.map((v) => <PostCard {...v} />)}
         </div>
       </Layout>

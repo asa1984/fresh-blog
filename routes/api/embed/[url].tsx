@@ -1,37 +1,17 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { DOMParser } from "deno-dom/deno-dom-wasm.ts";
-
-type OGP = {
-  url: string;
-  title: string;
-  image: string;
-  domain: string;
-};
+import { OGP, ogpSchema } from "@/types/mod.ts";
+import { getOGP } from "@/lib/ogp.ts";
+import { cacheFunction } from "@/lib/cache.ts";
 
 export const handler: Handlers<OGP> = {
   async GET(_, ctx) {
     const { url } = ctx.params;
     const decoded = decodeURIComponent(url);
-    const html = await (await fetch(decoded)).text();
-    const dom = new DOMParser().parseFromString(html, "text/html");
-    if (!dom) throw new Error("dom is not dound");
-
-    const metaElements = dom.getElementsByTagName("meta");
-    const meta = metaElements
-      .filter((elem) => elem.hasAttribute("property"))
-      .reduce((previous: Record<string, string | null>, current) => {
-        const property = current.getAttribute("property");
-        const content = current.getAttribute("content");
-        if (!property || !content) return previous;
-        previous[property] = content;
-        return previous;
-      }, {});
-    const ogp: OGP = {
-      url: meta["og:url"] || decoded,
-      title: meta["og:title"] || dom.title || "No Title",
-      image: meta["og:image"] ?? "",
-      domain: new URL(meta["og:url"]!).hostname ?? "",
-    };
+    const ogp = await cacheFunction({
+      key: decoded,
+      fn: getOGP,
+      schema: ogpSchema,
+    });
     return ctx.render(ogp);
   },
 };

@@ -20,11 +20,11 @@ export default function ArticlePage({ data }: PageProps<Article>) {
       <ContentMeta title={data.title} description={data.overview} />
       <Layout>
         <article className="max-w-2xl mx-auto">
-          <header className="my-16">
+          <header className="my-12">
             <h1 className="text-3xl font-bold mx-auto max-w-max">
               {data.title}
             </h1>
-            <div className="mt-8 mx-auto max-w-max flex justify-center content-center">
+            <div className="mt-6 mx-auto max-w-max flex justify-center content-center">
               <IconPencil className="w-5 h-5 m-auto mr-2 text-gray-500 dark:text-gray-400" />
               <time
                 className="block"
