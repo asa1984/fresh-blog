@@ -39,7 +39,7 @@ export const handler: Handlers<OGP> = {
 export default function EmbedLinkCard({ data }: PageProps<OGP>) {
   const { url, title, image, domain } = data;
   return (
-    <div class="w-full h-[120px] text-black dark:text-white">
+    <div class="w-full h-[120px] text-black hover:bg-gray-100 dark:(text-white hover:bg-gray-800)">
       <a
         href={url}
         target="_blank"
@@ -52,13 +52,13 @@ export default function EmbedLinkCard({ data }: PageProps<OGP>) {
           </h1>
           <div class="flex self-center mt-4 overflow-hidden ">
             <img
-              src={`http://www.google.com/s2/favicons?size=16&domain_url=${domain}`}
+              src={`http://www.google.com/s2/favicons?size=14&domain_url=${domain}`}
               alt={domain}
               class="w-[16px] h-[16px] mr-1"
             />
-            <small className="text-gray-500 dark:text-gray-300 text-base leading-none font-medium">
+            <span className="text-gray-500 dark:text-gray-400 text-base leading-none font-medium">
               {domain}
-            </small>
+            </span>
           </div>
         </div>
         <div class="flex-shrink-0 bg-gray-50">

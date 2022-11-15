@@ -4,7 +4,10 @@ import ThemeToggleButton from "@/islands/ThemeToggleButton.tsx";
 export const Header = () => {
   return (
     <header className="flex justify-between items-center">
-      <a href="/" className="font-extrabold text-3xl text-blue-500 select-none">
+      <a
+        href="/"
+        className="font-extrabold text-3xl text-blue-500 select-none"
+      >
         TechniCasu
       </a>
       <nav className="flex sm:gap-x-1 text-lg font-medium">

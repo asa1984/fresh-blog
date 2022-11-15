@@ -9,7 +9,7 @@ export const handler: Handlers = {
   async GET(_, ctx) {
     const articles = await getArticles();
     articles.sort((a, b) => b.date.getTime() - a.date.getTime());
-    return ctx.render(articles);
+    return await ctx.render(articles);
   },
 };
 

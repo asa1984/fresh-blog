@@ -9,7 +9,7 @@ export const Layout = (props: { children: JSX.Element }) => {
         <main className="flex-grow">
           {props.children}
         </main>
-        <footer className="mt-16 text-center font-medium text-gray-500">
+        <footer className="mt-16 text-center font-medium text-gray-500 dark:text-gray-400">
           © 2022 A.S.
         </footer>
       </div>

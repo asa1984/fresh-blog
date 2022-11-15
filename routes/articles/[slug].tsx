@@ -10,7 +10,7 @@ export const handler: Handlers = {
   async GET(_, ctx) {
     const { slug } = ctx.params;
     const article = await getArticle(slug);
-    return article ? ctx.render(article) : ctx.renderNotFound();
+    return article ? await ctx.render(article) : await ctx.renderNotFound();
   },
 };
 
@@ -18,7 +18,6 @@ export default function ArticlePage({ data }: PageProps<Article>) {
   return (
     <>
       <ContentMeta title={data.title} description={data.overview} />
-
       <Layout>
         <article className="max-w-2xl mx-auto">
           <header className="my-16">
@@ -26,7 +25,7 @@ export default function ArticlePage({ data }: PageProps<Article>) {
               {data.title}
             </h1>
             <div className="mt-8 mx-auto max-w-max flex justify-center content-center">
-              <IconPencil className="w-5 h-5 m-auto mr-2 text-gray-500" />
+              <IconPencil className="w-5 h-5 m-auto mr-2 text-gray-500 dark:text-gray-400" />
               <time
                 className="block"
                 dateTime={data.date.toJSON()}

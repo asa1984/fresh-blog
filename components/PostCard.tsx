@@ -26,7 +26,7 @@ export const PostCard = (props: Article) => {
       <div className="mt-1.5">
         <p>{props.overview}</p>
         <time
-          className="font-medium text-gray-500"
+          className="font-medium text-gray-500 dark:text-gray-400"
           dateTime={props.date.toJSON()}
         >
           {progressDate}
