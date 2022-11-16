@@ -17,7 +17,11 @@ export const handler: Handlers = {
 export default function ArticlePage({ data }: PageProps<Article>) {
   return (
     <>
-      <ContentMeta title={data.title} description={data.overview} />
+      <ContentMeta
+        title={data.title}
+        description={data.overview}
+        type="article"
+      />
       <Layout>
         <article className="max-w-2xl mx-auto">
           <header className="my-12">

@@ -43,6 +43,7 @@ const CACHE_LIMIT_TIME_MS = 432_000_000;
 export async function cacheFunction<T>(
   { key, fn, schema }: CacheFunction<T>,
 ) {
+  if (localStorage === undefined) return fn(key);
   const cache = getStorage(key);
   const parsed = schema.safeParse(cache?.value);
   if (
