@@ -34,7 +34,7 @@ export default function EmbedLinkCard({ data }: PageProps<OGP>) {
             <img
               src={`http://www.google.com/s2/favicons?size=14&domain_url=${domain}`}
               alt={domain}
-              class="w-[16px] h-[16px] mr-1"
+              class="w-[16px] h-[16px] mr-1.5"
             />
             <span className="text-gray-500 dark:text-gray-400 text-base leading-none font-medium">
               {domain}

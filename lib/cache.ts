@@ -37,7 +37,7 @@ type CacheFunction<T> = {
   schema: z.ZodSchema<T>;
 };
 
-// 5日
+// 5日間
 const CACHE_LIMIT_TIME_MS = 432_000_000;
 
 export async function cacheFunction<T>(

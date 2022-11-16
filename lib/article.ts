@@ -35,7 +35,6 @@ export async function getArticles(): Promise<Article[]> {
       fileNames.push(entry.name.replace(".md", ""));
     }
   }
-
   const resp = await Promise.all(
     fileNames.map((fileName) => getArticle(fileName)),
   );

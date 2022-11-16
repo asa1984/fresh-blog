@@ -10,7 +10,7 @@ export default function App({ Component }: AppProps) {
           href="/favicon.ico"
         />
         <style>
-          {`html{overflow-y: scroll;}body{font-family:'Segoe UI',sans-serif;}`}
+          {`html{overflow-y:scroll;}body{font-family:'Segoe UI',sans-serif;}`}
         </style>
         <script src="/theme.js"></script>
       </Head>

@@ -10,7 +10,7 @@ export const Layout = (props: { children: JSX.Element }) => {
           {props.children}
         </main>
         <footer className="mt-16 text-center font-medium text-gray-500 dark:text-gray-400">
-          © 2022 A.S.
+          © 2022 Asahi Sato
         </footer>
       </div>
     </div>

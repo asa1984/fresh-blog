@@ -4,12 +4,13 @@ import IconSun from "tabler-icons-tsx/sun.tsx";
 import IconMoon from "tabler-icons-tsx/moon.tsx";
 
 const useTheme = () => {
+  const storage = window.localStorage;
   const initialState = (() => {
     if (!IS_BROWSER) return false;
-    if (!("theme" in window.sessionStorage)) {
+    if (!("theme" in storage)) {
       return window.matchMedia("(prefers-color-scheme: dark)").matches;
     }
-    return window.sessionStorage.getItem("theme") === "dark";
+    return storage.getItem("theme") === "dark";
   })();
   const [isDark, setIsDark] = useState<boolean>(initialState);
   const toggle = () => {
@@ -19,27 +20,20 @@ const useTheme = () => {
   useEffect(() => {
     const documentClassList = document.documentElement.classList;
     const iframes = Array.from(document.getElementsByTagName("iframe"));
-    const storage = window.sessionStorage;
+
     if (isDark) {
-      // document.documentElement.classList.add("dark");
-      // window.sessionStorage.setItem("theme", "dark");
       documentClassList.add("dark");
       iframes.map((iframe) =>
         iframe.contentWindow?.document.documentElement.classList.add("dark")
       );
       storage.setItem("theme", "dark");
     } else {
-      // document.documentElement.classList.remove("dark");
-      // window.sessionStorage.setItem("theme", "light");
       documentClassList.remove("dark");
       iframes.map((iframe) =>
         iframe.contentWindow?.document.documentElement.classList.remove("dark")
       );
       storage.setItem("theme", "light");
     }
-    // iframes.map((iframe) => {
-    //   iframe.contentWindow?.document.location.reload();
-    // });
   }, [isDark]);
   return { isDark, toggle };
 };

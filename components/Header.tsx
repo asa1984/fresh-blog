@@ -8,7 +8,7 @@ export const Header = () => {
         href="/"
         className="font-extrabold text-3xl text-blue-500 select-none"
       >
-        TechniCasu
+        TrashBox
       </a>
       <nav className="flex sm:gap-x-1 text-lg font-medium">
         <a

@@ -16,22 +16,6 @@ export const CodeBlock = (
       PreTag={({ children }) => <>{children}</>}
       wrapLines={true}
       style={{ "pre div": { backgroundColor: "transparent" } }}
-      // showLineNumbers
-      // lineNumberStyle={(lineNum) => {
-      //   return { display: "none" };
-      // }}
-      // lineProps={(lineNum) => {
-      //   const diff = [1, 2];
-      //   return diff.includes(lineNum)
-      //     ? {
-      //       style: {
-      //         backgroundColor: "#99ff222b",
-      //         display: "block",
-      //         width: "100%",
-      //       },
-      //     }
-      //     : {};
-      // }}
     >
       {String(children)}
     </SyntaxHighlighter>
