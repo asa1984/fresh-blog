@@ -29,7 +29,7 @@ export default function AboutPage() {
       <Layout>
         <article className="mt-12 max-w-lg mx-auto">
           <h1 className="text-center text-4xl font-bold">About</h1>
-          <p className="mt-6 max-w-max mx-auto">思考のくずかご。おもしろ技術の実験場⚡</p>
+          <p className="mt-6 max-w-max mx-auto">思考ゴミ箱。おもしろ技術の実験場⚡</p>
           <div className="mt-8 flex justify-center space-x-8">
             <img
               src="/my_god.jpg"

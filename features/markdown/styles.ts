@@ -8,18 +8,18 @@ const markdownStyle: CSSRules = {
   },
   h2: {
     fontSize: "1.6rem",
-    marginTop: "2rem",
+    marginTop: "4rem",
     borderBottomWidth: "1px",
     borderBottomStyle: "solid",
     borderBottomColor: "#5c93bb2b",
   },
   h3: {
     fontSize: "1.4rem",
-    marginTop: "1.8rem",
+    marginTop: "3rem",
   },
   h4: {
     fontSize: "1.2rem",
-    marginTop: "1.6rem",
+    marginTop: "2.5rem",
   },
   img: {
     margin: "2rem auto",
@@ -29,7 +29,7 @@ const markdownStyle: CSSRules = {
     borderRadius: "0.5rem",
   },
   p: {
-    marginTop: "1rem",
+    marginTop: "1.5rem",
   },
   strong: {
     fontWeight: "bold",
@@ -64,7 +64,7 @@ const markdownStyle: CSSRules = {
     paddingLeft: "0.2rem",
   },
   blockquote: apply(
-    "mt-4 pl-3 pt-0.5 pb-4 border-l-4 border-gray-400 text-gray-600 dark:text-gray-300 italic",
+    "my-8 pl-3 border-l-4 border-gray-400 text-gray-600 dark:text-gray-300 italic",
   ),
   code: {
     wordBreak: "break-word",
@@ -110,7 +110,7 @@ const markdownStyle: CSSRules = {
 
 const syntsxHighlightStyle: CSSRules = {
   pre: {
-    margin: "1.5rem -0.5rem",
+    margin: "2rem -0.5rem",
     maxBlockSize: "max-content",
   },
   "pre div": { visibility: "" },

@@ -5,9 +5,9 @@ type AnchorProps = JSX.HTMLAttributes<HTMLAnchorElement>;
 export const Anchor = (
   { href, id, className, children }: AnchorProps,
 ) => {
-  if (String(children) === "@card") {
+  if (String(children) === "@card" || String(children) === href) {
     return (
-      <div className="my-6 h-[120px] border-1 border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
+      <div className="my-8 h-[120px] border-1 border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
         {href && (
           <iframe
             src={`/api/embed/${encodeURIComponent(href)}`}
