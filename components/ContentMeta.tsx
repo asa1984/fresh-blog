@@ -8,7 +8,7 @@ export type ContentMetaProps = {
 
 export const ContentMeta = (
   {
-    title = "tech-blog",
+    title = "TrashBox",
     description = "Personal blog by Asahi Sato",
     type = "website",
   }: ContentMetaProps,
@@ -22,6 +22,10 @@ export const ContentMeta = (
         content={description}
       />
       <meta property="og:type" content={type} />
+      <meta
+        property="og:image"
+        content="https://trashbox-asa.deno.dev/my_god.jpg"
+      />
 
       <meta name="twitter:title" content={title} />
       <meta name="twitter:card" content="summary" />
