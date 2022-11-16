@@ -1,7 +1,6 @@
 import { css, tw } from "twind/css";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import rehypePrism from "rehype-prism";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize from "rehypw-sanitize";
 import { components } from "./components.tsx";
@@ -16,11 +15,16 @@ export const Markdown = (props: { markdown: string }) => {
       <ReactMarkdown
         children={props.markdown}
         components={components}
-        remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypePrism, rehypeRaw, [
-          rehypeSanitize,
-          sanitizeOptions,
-        ]]}
+        remarkPlugins={[
+          remarkGfm,
+        ]}
+        rehypePlugins={[
+          rehypeRaw,
+          [
+            rehypeSanitize,
+            sanitizeOptions,
+          ],
+        ]}
       />
     </div>
   );

@@ -1,143 +1,128 @@
-import { CSSRules } from "twind/css";
+import { apply, CSSRules, theme } from "twind/css";
 
 const markdownStyle: CSSRules = {
-  h1: {
-    fontSize: "2em",
+  "h2, h3, h4": {
     fontWeight: "bold",
-
-    marginTop: "1.6em",
-    marginBottom: "0.8em",
-
+    lineHeight: "1.4",
+    wordBreak: "break-word",
+  },
+  h2: {
+    fontSize: "1.6rem",
+    marginTop: "4rem",
     borderBottomWidth: "1px",
     borderBottomStyle: "solid",
     borderBottomColor: "#5c93bb2b",
   },
-  h2: {
-    fontSize: "1.6em",
-    fontWeight: "bolder",
-    marginTop: "1.2em",
-    marginBottom: "0.6em",
-  },
   h3: {
-    fontSize: "1.2em",
-    fontWeight: "bolder",
-    marginTop: "0.8em",
-    marginBottom: "0.4em",
+    fontSize: "1.4rem",
+    marginTop: "3rem",
+  },
+  h4: {
+    fontSize: "1.2rem",
+    marginTop: "2.5rem",
   },
   img: {
-    margin: "2em auto",
+    margin: "2rem auto",
     maxWidth: "100%",
     height: "auto",
     cursor: "pointer",
-    borderRadius: "1em",
+    borderRadius: "0.5rem",
   },
   p: {
-    marginTop: "0.3em",
+    marginTop: "1.5rem",
+  },
+  strong: {
+    fontWeight: "bold",
   },
   em: {
     fontStyle: "italic",
   },
-  a: {
-    color: "#0856fd",
-    wordWrap: "break-word",
+  a: apply("text-blue-500 hover:border-b-1 border-blue-500"),
+  ".contains-task-list": {
+    paddingLeft: "0.5rem",
+    listStyle: "none",
   },
   ul: {
-    paddingLeft: "1.8em",
-    margin: "1em 0",
+    paddingLeft: "1.8rem",
+    margin: "1rem 0",
     listStyleType: "initial",
   },
   ol: {
-    paddingLeft: "1.5em",
-    margin: "1em 0",
+    paddingLeft: "1.5rem",
+    margin: "1rem 0",
     listStyleType: "revert",
   },
   li: {
-    margin: "0.4em 0",
+    margin: "0.4rem 0",
   },
   "li::marker": {
-    fontSize: "1.1em",
+    fontSize: "1.1rem",
     fontWeight: "bold",
-    color: "#556677",
+    color: theme("colors.gray.500"),
   },
   "ol li": {
-    paddingLeft: "0.2em",
+    paddingLeft: "0.2rem",
   },
-  blockquote: {
-    fontStyle: "italic",
-    borderLeft: "3px solid #a0aabb",
-    fontSize: "0.95em",
-    color: "#5f5f5f",
-    paddingLeft: "0.8em",
-    paddingTop: "0.5em",
-    paddingBottom: "0.8em",
-
-    margin: "1em 0",
-  },
-
+  blockquote: apply(
+    "my-8 pl-3 border-l-4 border-gray-400 text-gray-600 dark:text-gray-300 italic",
+  ),
   code: {
-    padding: "0.1em 0.4em",
-    margin: "0 0.2em",
+    wordBreak: "break-word",
+    padding: "0.1rem 0.4rem",
+    margin: "0 0.2rem",
     background: "#5c93bb2b",
-    borderRadius: "0.2em",
+    borderRadius: "0.2rem",
   },
   ".footnotes": {
-    marginTop: "3em",
+    marginTop: "3rem",
   },
-
   table: {
-    margin: "1em 0",
+    display: "block",
+    margin: "1rem 0",
+    width: "auto",
+    overflow: "auto",
+    borderCollapse: "collapse",
+    lineHeight: "1.5",
   },
-  thead: {
-    background: "#e4edf3",
-  },
+  thead: apply("bg-gray-300 dark:bg-gray-600"),
   th: {
-    padding: "0.5em",
-    border: "1px solid #cccddd",
     fontWeight: "bold",
   },
-  td: {
-    padding: "0.5em",
-    border: "1px solid #cccddd",
+  "th,td": {
+    padding: "0.5rem",
+    border: "1px solid",
+    borderColor: theme("colors.gray.400"),
   },
-
   hr: {
-    margin: "2em 0",
+    margin: "2rem 0",
   },
-  details: {
-    margin: "1em 0",
-    padding: "0.6em 0.6em 0",
-    border: "1px solid #5c93bb2b",
-    borderRadius: "0.6em",
-    boxShadow: "0px 2px 3px -2px #00000010",
-  },
-  summary: {
-    cursor: "pointer",
-    // fontWeight: "bolder",
-    padding: "0.6em",
-    margin: "-0.6em -0.6em 0",
-  },
-  "details[open]": {
-    padding: "0.6em",
-  },
-  "details[open] summary": {
-    backgroundColor: "#bbbbbb2b",
-    borderBottom: "1px solid #5c93bb2b",
-    marginBottom: "0.6em",
-  },
+  details: apply(
+    "my-6 pt-2 px-2 border-1 border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden",
+  ),
+  summary: apply(
+    "mt-[-0.5rem] mx-[-0.5rem] p-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition cursor-pointer",
+  ),
+  "details[open]": apply("p-2"),
+  "details[open] summary": apply(
+    "mb-2 border-b-1 border-gray-300 dark:border-gray-600 transition-none  rounded-tr-lg rounded-tl-lg",
+  ),
 };
 
 const syntsxHighlightStyle: CSSRules = {
   pre: {
-    margin: "1em 0",
+    margin: "2rem -0.5rem",
+    maxBlockSize: "max-content",
   },
+  "pre div": { visibility: "" },
   "pre code": {
     display: "block",
     backgroundColor: "#283042",
-    padding: "1em 0.8em",
+    padding: "1rem 0.8rem",
     margin: "auto auto",
-    borderRadius: "1em",
+    borderRadius: "0.75rem",
     color: "#fff",
-    fontSize: "0.9em",
+    fontSize: "0.9rem",
+    lineHeight: "1.5",
     overflowX: "auto",
   },
   ".keyword": { color: "#f8baff" },
@@ -147,6 +132,8 @@ const syntsxHighlightStyle: CSSRules = {
   ".operator": { color: "#f6c77b" },
   ".punctuation": { color: "#aaaaaa" },
   ".comment": { color: "#aaaaaa" },
+  // ".tag": { color: "#d5787b" },
+  // ".tag.punctuation": { color: "#aaaaaa" },
 };
 
 export const style = { ...markdownStyle, ...syntsxHighlightStyle };

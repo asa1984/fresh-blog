@@ -5,19 +5,14 @@ export default function App({ Component }: AppProps) {
   return (
     <>
       <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
-          rel="stylesheet"
+          rel="icon"
+          href="/favicon.ico"
         />
         <style>
-          {`body{font-family:'Noto Sans JP', meiryo, sans-serif;}`}
+          {`html{overflow-y:scroll;}body{font-family:'Segoe UI',sans-serif;}`}
         </style>
+        <script src="/theme.js"></script>
       </Head>
       <Component />
     </>
