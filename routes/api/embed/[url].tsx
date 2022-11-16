@@ -13,7 +13,7 @@ export const handler: Handlers<OGP> = {
     //   fn: getOGP,
     //   schema: ogpSchema,
     // });
-    const ogp = getOGP();
+    const ogp = await getOGP(decoded);
     return ctx.render(ogp);
   },
 };
