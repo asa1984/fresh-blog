@@ -7,11 +7,13 @@ export const handler: Handlers<OGP> = {
   async GET(_, ctx) {
     const { url } = ctx.params;
     const decoded = decodeURIComponent(url);
-    const ogp = await cacheFunction({
-      key: decoded,
-      fn: getOGP,
-      schema: ogpSchema,
-    });
+    // FIX: localStorage is unable on Deno Deploy
+    // const ogp = await cacheFunction({
+    //   key: decoded,
+    //   fn: getOGP,
+    //   schema: ogpSchema,
+    // });
+    const ogp = getOGP();
     return ctx.render(ogp);
   },
 };
