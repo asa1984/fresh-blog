@@ -17,9 +17,6 @@ const QUOTES: quote[] = [
   { dialogue: "Guns. Lots of guns.", author: "Neo" },
 ];
 
-const fontStyle =
-  css`font-family: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;`;
-
 export default function AboutPage() {
   const randomIndex = Math.floor(Math.random() * QUOTES.length);
   const { dialogue, author } = QUOTES[randomIndex];
@@ -72,11 +69,9 @@ export default function AboutPage() {
               </li>
             </ul>
             <h2 className="mt-6 text-2xl font-bold">Motto</h2>
-            <div className={tw(fontStyle)}>
-              <div className="mt-4 p-4 leading-normal bg-gray-200 dark:bg-gray-700 transition rounded-lg italic">
-                <p>{dialogue}</p>
-                <p className="text-right">{author}</p>
-              </div>
+            <div className="mt-4 p-4 leading-normal bg-gray-200 dark:bg-gray-700 transition rounded-lg italic font-serif">
+              <p>{dialogue}</p>
+              <p className="text-right">{author}</p>
             </div>
           </div>
         </article>
