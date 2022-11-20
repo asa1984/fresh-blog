@@ -45,7 +45,10 @@ export default function EmbedLinkCard({ data }: PageProps<OGP>) {
         </div>
         <div class="flex-shrink-0 bg-gray-50">
           {image && (
-            <img src={image} class="w-[120px] sm:w-full h-full object-cover" />
+            <img
+              src={image}
+              class="w-[120px] sm:w-full h-[120px] object-cover"
+            />
           )}
         </div>
       </a>

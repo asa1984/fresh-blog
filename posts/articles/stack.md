@@ -93,7 +93,7 @@ Edge ServerでSSRを行う手法。Edgeからの高速なレスポンスとコ�
 | :-----: | :-: | :-: | :-: | :------: |
 |   SEO   |  △  |  ○  |  ○  |    ○     |
 | リアルタイム性 |  ○  |  ○  |  ☓  |    ○     |
-|  パフォーマンス  |  △  |  ○  |  ◎  |    ◎     |
+| パフォーマンス |  △  |  ○  |  ◎  |    ◎     |
 
 Edgeではマシンリソースや実行環境の厳しい制限を受けるためエコシステムの多くはまだ発展途上だが、いずれプロダクションにおいても主流になると思われる。Freshは後述のDeno
 Deploy上で実行されることを想定して作られている。
@@ -112,7 +112,7 @@ Firstな記法以外にも、styled-componentsのようにオブジェクト形�
 Freshの初期化スクリプト実行時にオプションでTwindのインストールが選択可能で、その場合Fresh用のtwind
 pluginが自動で適用される。通常、Twindを利用するには要素のclassNameに`tw`関数の返り値を渡す必要があるが、プラグインによって直接classNameに書き込めるようになっている。VSCodeの拡張機能も用意されていて強力な補完が効く。
 
-```jsx
+```js
 import {ts, css, theme} from "twind/css"
 
 // Twindのデフォルト記法
@@ -140,7 +140,7 @@ MarkdownをパースしてJSXに変換するライブラリ。内部でRemarkと
 
 Markdownパーサーで得たHTML文字列をdengeroushtmlオプションに渡すのは生理的に受け付けなかったのでこれを選んだ。
 
-通常のHTML要素の代わりに独自実装のJSXコンポーネントを渡すことも可能。例えばこのサイトのシンタックスハイライトは、code要素の代わりに[react-syntax-highlighter](https://github.com/react-syntax-highlighter/react-syntax-highlighter)をラップしたコンポーネントを渡すことで実現している、
+Markdownで`# タイトル`と書いた時これをh1要素に変換する、といったようにパーサーにはデフォルトの変換先要素が設定されているが、代わりにJSXコンポーネントを設定することも可能。例えばこのブログでは、a要素の代わりに独自実装の`Anchor`コンポーネントを渡し、リンクタイトルが`@card`だった時通常のa要素の代わりにiframeリンクカードを返すようにしている。
 
 <details>
 <summary>PreactとReact用ライブラリの互換性</summary>
