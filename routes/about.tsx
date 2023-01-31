@@ -8,9 +8,7 @@ type quote = { dialogue: string; author: string };
 
 const QUOTES: quote[] = [
   { dialogue: '"ビッグ・ブラザーがあなたを見ている"', author: "1984年" },
-  { dialogue: "テメエら全員殺せばよぉ! 借金はパアだぜ!", author: "デンジ" },
   { dialogue: "我が臆病な自尊心と、尊大な羞恥心との所為である。", author: "山月記" },
-  { dialogue: "Nvidia, Fuck You!", author: "Linus Torvalds" },
   { dialogue: "Daisy, Daisy, give me your answer do.", author: "HAL9000" },
   { dialogue: "チャカポコチャカポコ……", author: "ドグラ・マグラ" },
   { dialogue: "Guns. Lots of guns.", author: "John Wick" },
