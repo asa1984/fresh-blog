@@ -1,11 +1,14 @@
-# fresh project
+# fresh-blog
 
-### Usage
+## セットアップ
+1. [Deno](https://deno.land/)をインストール
+2. リポジトリをクローン
+3. `deno task start`で開発用サーバー起動
 
-Start the project:
+## デプロイ
+1. [Deno Deploy](https://deno.com/deploy)にサインイン
+2. `+ New Project`からGitHubリポジトリを指定
 
-```
-deno task start
-```
-
-This will watch the project directory and restart as necessary.
+## 投稿
+1. `post/articles`ディレクトリにMarkdownファイルを配置
+2. デプロイ時に指定したリポジトリにプッシュ
